@@ -27,8 +27,8 @@
   "email": "keita_moromizato@relationsgroup.co.jp",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^6.1.18",
-    "espower-babel": "^4.0.0",
+    "babel": "^5.8.34",
+    "espower-babel": "^3.3.0",
     "mocha": "^2.3.4",
     "power-assert": "^1.2.0",
     "textlint": "^5.0.3"
