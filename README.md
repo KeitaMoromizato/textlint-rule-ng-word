@@ -4,14 +4,14 @@
 ## Installation
 
 ```
-npm install textlint-rule-textlint-rule-ng-word
+npm install textlint-rule-ng-word
 ```
 
 ## Usage
 
 ```
-npm install -g textlint textlint-rule-textlint-rule-ng-word
-textlint --rule textlint-rule-textlint-rule-ng-word README.md
+npm install -g textlint textlint-rule-ng-word
+textlint --rule ng-word README.md
 ```
 
 ## Config
@@ -19,7 +19,7 @@ textlint --rule textlint-rule-textlint-rule-ng-word README.md
 ```
 {
   "rules": {
-    "textlint-rule-textlint-rule-ng-word": {
+    "ng-word": {
       "words": ["word1", "word2"]
     }
   }
