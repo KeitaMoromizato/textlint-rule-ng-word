@@ -48,5 +48,18 @@ describe('ng-word', function() {
 
       }).then(done, done);
     });
+
+    context('when multiple violaitons on 1 line', () => {
+      it('returns multiple errors', (done) => {
+        textlint.lintMarkdown('この文章は不適切な文字xxxとxxxを含みます。').then(result => {
+          assert(result.messages.length === 2);
+          assert(result.messages[0].message === 'Document contains NG word "xxx".');
+          assert(result.messages[0].line === 1);
+          assert(result.messages[0].column === 12);
+          assert(result.messages[1].line === 1);
+          assert(result.messages[1].column === 16);
+        }).then(done, done);
+      });
+    })
   });
 });

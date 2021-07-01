@@ -7,14 +7,19 @@ export default function (context, options = {}) {
     [Syntax.Str](node) {
       const text = getSource(node);
       words.forEach(word => {
-        const violationIndex = text.indexOf(word);
-        if (violationIndex == -1) {
-          return;
-        }
-        const ruleError = new RuleError(`Document contains NG word "${word}".`, {
-          index: violationIndex
-        });
-        report(node, ruleError);
+        let fromIndex = -1;
+        let violationIndex = 0;
+        do {
+          violationIndex = text.indexOf(word, fromIndex + 1);
+          if (violationIndex == -1) {
+            return;
+          }
+          fromIndex = violationIndex;
+          const ruleError = new RuleError(`contains NG word "${word}".`, {
+            index: violationIndex
+          });
+          report(node, ruleError);
+        } while (violationIndex !== -1);
       });
     }
   }
