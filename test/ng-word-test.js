@@ -1,19 +1,19 @@
 "use strict";
 
 import assert from 'power-assert';
-import {TextLintCore} from 'textlint';
+import { TextLintCore } from 'textlint';
 import rule from '../src/ng-word.js';
 
-describe('ng-word', function() {
+describe('ng-word', function () {
 
   context('when use sample text', () => {
     const textlint = new TextLintCore();
 
     textlint.setupRules({
       'ng-word': rule
-    },{
+    }, {
       'ng-word': {
-        'words':['xxx']
+        'words': ['xxx']
       }
     });
 
