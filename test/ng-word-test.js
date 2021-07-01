@@ -22,6 +22,21 @@ describe('ng-word', function() {
 
         assert(result.messages.length === 1);
         assert(result.messages[0].message === 'Document contains NG word "xxx".');
+        assert(result.messages[0].line === 1);
+        assert(result.messages[0].column === 12);
+
+      }).then(done, done);
+    });
+
+    it('should report correct line number', (done) => {
+      const sample = `この文章は2行目に
+不適切な文字xxxを含みます。`;
+      textlint.lintMarkdown(sample).then(result => {
+
+        assert(result.messages.length === 1);
+        assert(result.messages[0].message === 'Document contains NG word "xxx".');
+        assert(result.messages[0].line === 2);
+        assert(result.messages[0].column === 7);
 
       }).then(done, done);
     });
